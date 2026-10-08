@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReWear — Genuine Pre-Owned Brands</title>
+<style>
+:root{--ink:#171717;--muted:#6b7280;--bg:#f7f7f5;--card:#fff;--line:#e7e7e2;--accent:#111}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:5}
+.nav{max-width:1180px;margin:auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:24px;font-weight:800;letter-spacing:-1px}.logo span{color:#777}
+nav a{margin-left:22px;text-decoration:none;color:#333;font-size:14px}
+.hero{max-width:1180px;margin:30px auto 0;padding:55px 22px;display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center}
+.badge{display:inline-block;border:1px solid #ddd;border-radius:99px;padding:8px 12px;font-size:12px;background:white}
+h1{font-size:clamp(42px,6vw,76px);line-height:.96;letter-spacing:-4px;margin:18px 0}
+.hero p{font-size:18px;line-height:1.6;color:var(--muted);max-width:620px}
+.btn{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:14px 20px;border-radius:10px;margin-top:12px;font-weight:700}
+.hero-card{background:#151515;color:white;border-radius:24px;padding:30px;min-height:300px;display:flex;flex-direction:column;justify-content:end}
+.hero-card .big{font-size:80px;font-weight:900;line-height:.8;margin-bottom:20px}
+.hero-card p{color:#ccc;margin:0}
+.section{max-width:1180px;margin:15px auto;padding:35px 22px}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}
+h2{font-size:32px;letter-spacing:-1px;margin:0}.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{border:1px solid #ddd;background:#fff;border-radius:99px;padding:9px 13px;cursor:pointer}
+.filters button.active{background:#111;color:#fff;border-color:#111}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.2s}
+.product:hover{transform:translateY(-3px);box-shadow:0 10px 25px #00000010}
+.pic{height:220px;background:#ecece8;display:flex;align-items:center;justify-content:center;font-size:56px}
+.info{padding:16px}.brand{font-size:12px;color:#777;text-transform:uppercase;letter-spacing:1px}.name{font-weight:750;margin:7px 0}.price{font-weight:850;font-size:20px}.condition{font-size:12px;color:#64748b;margin-top:7px}
+.sell{background:#111;color:#fff;border-radius:22px;padding:35px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.sell h2{font-size:40px}.sell p{color:#ccc;line-height:1.6}
+.sell-box{background:#222;border:1px solid #333;border-radius:14px;padding:20px}
+.sell-box div{padding:12px 0;border-bottom:1px solid #333;color:#ddd}.sell-box div:last-child{border:0}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:30px 22px;color:#777;font-size:13px}
+@media(max-width:850px){.hero,.sell{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}nav{display:none}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.pic{height:190px}h1{letter-spacing:-2px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="logo">Re<span>Wear</span></div>
+    <nav><a href="#shop">Shop</a><a href="#sell">Sell an Item</a><a href="#authenticity">Authenticity</a></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="badge">PRE-OWNED • GENUINE BRANDS ONLY</span>
+    <h1>Good brands.<br>Second life.</h1>
+    <p>Buy and sell quality pre-owned products from real brands. Every listing must be honestly described and supported by authenticity information.</p>
+    <a class="btn" href="#shop">Browse items</a>
+  </div>
+  <div class="hero-card">
+    <div class="big">01</div>
+    <p><b>Our rule:</b> no counterfeit products. Sellers must provide clear photos, condition details and proof of authenticity when available.</p>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <div class="section-head">
+    <h2>Featured items</h2>
+    <div class="filters">
+      <button class="active" onclick="filterItems('all',this)">All</button>
+      <button onclick="filterItems('fashion',this)">Fashion</button>
+      <button onclick="filterItems('tech',this)">Tech</button>
+      <button onclick="filterItems('shoes',this)">Shoes</button>
+    </div>
+  </div>
+  <div class="grid" id="products">
+    <article class="product" data-cat="fashion"><div class="pic">🧥</div><div class="info"><div class="brand">Example Brand</div><div class="name">Pre-Owned Jacket</div><div class="price">Rs. 8,500</div><div class="condition">Excellent condition • Genuine</div></div></article>
+    <article class="product" data-cat="tech"><div class="pic">⌚</div><div class="info"><div class="brand">Example Brand</div><div class="name">Smart Watch</div><div class="price">Rs. 22,000</div><div class="condition">Very good • Genuine</div></div></article>
+    <article class="product" data-cat="shoes"><div class="pic">👟</div><div class="info"><div class="brand">Example Brand</div><div class="name">Pre-Owned Sneakers</div><div class="price">Rs. 12,500</div><div class="condition">Good condition • Genuine</div></div></article>
+    
+  </div>
+</section>
+
+<section class="section" id="sell">
+  <div class="sell">
+    <div>
+      <h2>Have a branded item to sell?</h2>
+      <p>List your genuine pre-owned item with photos, brand/model, condition, asking price and any proof of purchase or authenticity.</p>
+      <a class="btn" href="mailto:your@email.com?subject=List%20an%20item">Contact to sell</a>
+    </div>
+    <div class="sell-box">
+      <div>✓ Real brand/model information</div>
+      <div>✓ Clear condition description</div>
+      <div>✓ Original photos required</div>
+      <div>✓ Counterfeit listings prohibited</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="authenticity">
+  <h2>Authenticity first</h2>
+  <p style="color:#6b7280;max-width:750px;line-height:1.7">This marketplace is for genuine branded products only. Before publishing a listing, verify the item using available proof such as a receipt, serial/model information, original packaging or other reliable evidence. Never claim an item is authentic if you cannot support that claim.</p>
+</section>
+
+<footer>
+  © 2026 ReWear • Pre-owned genuine goods marketplace • Replace the sample products, email and policies before launching.
+</footer>
+
+<script>
+function filterItems(cat,btn){
+ document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ document.querySelectorAll('.product').forEach(p=>{
+   p.style.display=(cat==='all'||p.dataset.cat===cat)?'block':'none';
+ });
+}
+</script>
+</body>
+</html>
