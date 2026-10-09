@@ -1,61 +1,87 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ReWear — Genuine Pre-Owned Brands</title>
+<title>ReWear — Pre-Owned Brands</title>
 <style>
-:root{--ink:#171717;--muted:#6b7280;--bg:#f7f7f5;--card:#fff;--line:#e7e7e2;--accent:#111}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:5}
-.nav{max-width:1180px;margin:auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-size:24px;font-weight:800;letter-spacing:-1px}.logo span{color:#777}
-nav a{margin-left:22px;text-decoration:none;color:#333;font-size:14px}
-.hero{max-width:1180px;margin:30px auto 0;padding:55px 22px;display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center}
-.badge{display:inline-block;border:1px solid #ddd;border-radius:99px;padding:8px 12px;font-size:12px;background:white}
-h1{font-size:clamp(42px,6vw,76px);line-height:.96;letter-spacing:-4px;margin:18px 0}
-.hero p{font-size:18px;line-height:1.6;color:var(--muted);max-width:620px}
-.btn{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:14px 20px;border-radius:10px;margin-top:12px;font-weight:700}
-.hero-card{background:#151515;color:white;border-radius:24px;padding:30px;min-height:300px;display:flex;flex-direction:column;justify-content:end}
-.hero-card .big{font-size:80px;font-weight:900;line-height:.8;margin-bottom:20px}
-.hero-card p{color:#ccc;margin:0}
-.section{max-width:1180px;margin:15px auto;padding:35px 22px}
-.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}
-h2{font-size:32px;letter-spacing:-1px;margin:0}.filters{display:flex;gap:8px;flex-wrap:wrap}
-.filters button{border:1px solid #ddd;background:#fff;border-radius:99px;padding:9px 13px;cursor:pointer}
-.filters button.active{background:#111;color:#fff;border-color:#111}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.product{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.2s}
-.product:hover{transform:translateY(-3px);box-shadow:0 10px 25px #00000010}
-.pic{height:220px;background:#ecece8;display:flex;align-items:center;justify-content:center;font-size:56px}
-.info{padding:16px}.brand{font-size:12px;color:#777;text-transform:uppercase;letter-spacing:1px}.name{font-weight:750;margin:7px 0}.price{font-weight:850;font-size:20px}.condition{font-size:12px;color:#64748b;margin-top:7px}
-.sell{background:#111;color:#fff;border-radius:22px;padding:35px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
-.sell h2{font-size:40px}.sell p{color:#ccc;line-height:1.6}
-.sell-box{background:#222;border:1px solid #333;border-radius:14px;padding:20px}
-.sell-box div{padding:12px 0;border-bottom:1px solid #333;color:#ddd}.sell-box div:last-child{border:0}
-footer{border-top:1px solid var(--line);margin-top:40px;padding:30px 22px;color:#777;font-size:13px}
-@media(max-width:850px){.hero,.sell{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}nav{display:none}}
-@media(max-width:520px){.grid{grid-template-columns:1fr}.pic{height:190px}h1{letter-spacing:-2px}}
+:root{--ink:#171717;--muted:#6b7280;--bg:#f7f7f5;--line:#e7e7e2}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
+.nav{max-width:1180px;margin:auto;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:800}
+.logo span{color:#777}
+nav a{margin-left:18px;color:#333;text-decoration:none;font-size:14px}
+.hero{max-width:1180px;margin:auto;padding:45px 22px;display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:center}
+.badge{display:inline-block;border:1px solid #ddd;border-radius:30px;padding:8px 12px;font-size:12px;background:white}
+h1{font-size:clamp(42px,6vw,72px);line-height:.98;letter-spacing:-3px;margin:20px 0}
+p{line-height:1.65}
+.muted{color:var(--muted)}
+.btn{display:inline-block;background:#111;color:#fff;padding:13px 18px;border-radius:9px;text-decoration:none;font-weight:bold}
+.hero-card{background:#151515;color:white;border-radius:22px;padding:28px;min-height:250px;display:flex;flex-direction:column;justify-content:end}
+.hero-card .big{font-size:75px;font-weight:900}
+.section{max-width:1180px;margin:15px auto;padding:30px 22px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:22px}
+h2{font-size:30px;margin:0}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+button{cursor:pointer;font:inherit}
+.filters button{border:1px solid #ddd;background:#fff;border-radius:25px;padding:9px 13px}
+.filters button.active{background:#111;color:white}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.product{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;cursor:pointer;transition:.2s}
+.product:hover{transform:translateY(-3px);box-shadow:0 8px 20px #0001}
+.pic{height:220px;background:#eaeae6;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pic img{width:100%;height:100%;object-fit:cover}
+.info{padding:15px}
+.brand{font-size:12px;color:#777;text-transform:uppercase;letter-spacing:1px}
+.name{font-weight:bold;margin:8px 0}
+.price{font-weight:800;font-size:19px}
+.condition{font-size:12px;color:#64748b;margin-top:7px}
+.hint{font-size:12px;color:#777;margin-top:12px}
+.sell{background:#111;color:white;border-radius:20px;padding:30px}
+.sell p{color:#ccc}
+footer{padding:28px 22px;border-top:1px solid var(--line);color:#777;font-size:13px}
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:20;overflow-y:auto;padding:20px}
+.modal.open{display:flex;align-items:center;justify-content:center}
+.modal-box{background:white;width:100%;max-width:760px;border-radius:18px;padding:22px;position:relative;margin:auto}
+.close{position:absolute;right:15px;top:12px;border:0;background:#eee;border-radius:50%;width:36px;height:36px;font-size:22px}
+.main-photo{height:350px;background:#eee;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:20px}
+.main-photo img{width:100%;height:100%;object-fit:contain}
+.thumbs{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.thumb{width:82px;height:75px;border:2px solid transparent;border-radius:8px;overflow:hidden;background:#eee;padding:0}
+.thumb.active{border-color:#111}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.contact{display:inline-block;background:#168344;color:white;text-decoration:none;padding:12px 18px;border-radius:9px;font-weight:bold;margin-top:12px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}nav a{margin-left:9px}}
+@media(max-width:500px){.grid{grid-template-columns:1fr 1fr}.pic{height:155px}.info{padding:10px}.price{font-size:16px}.modal{padding:10px}.main-photo{height:260px}h1{letter-spacing:-2px}}
 </style>
 </head>
 <body>
+
 <header>
   <div class="nav">
     <div class="logo">Re<span>Wear</span></div>
-    <nav><a href="#shop">Shop</a><a href="#sell">Sell an Item</a><a href="#authenticity">Authenticity</a></nav>
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#sell">Contact</a>
+      <a href="#authenticity">Authenticity</a>
+    </nav>
   </div>
 </header>
 
 <section class="hero">
   <div>
-    <span class="badge">PRE-OWNED • GENUINE BRANDS ONLY</span>
+    <span class="badge">PRE-OWNED • GENUINE BRANDS</span>
     <h1>Good brands.<br>Second life.</h1>
-    <p>Buy and sell quality pre-owned products from real brands. Every listing must be honestly described and supported by authenticity information.</p>
+    <p class="muted">Discover quality pre-owned products. Click any item to see its photos, price and details.</p>
     <a class="btn" href="#shop">Browse items</a>
   </div>
   <div class="hero-card">
     <div class="big">01</div>
-    <p><b>Our rule:</b> no counterfeit products. Sellers must provide clear photos, condition details and proof of authenticity when available.</p>
+    <p>Shop pre-owned items with clear photos and honest condition details.</p>
   </div>
 </section>
 
@@ -69,49 +95,187 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:30px 22px;color:
       <button onclick="filterItems('shoes',this)">Shoes</button>
     </div>
   </div>
-  <div class="grid" id="products">
-    <article class="product" data-cat=="fashion"><div class="pic">🧢</div><div class="info"><div class="brand">Rewear</div><div class="name">Stylish cap</div><div class="price">Rs.500</div><div class="condition">Good condition
-    <article class="product" data-cat="fashion"><div class="pic">🧥</div><div class="info"><div class="brand">Rewear</div><div class="name">Pre-Owned Jacket</div><div class="price">Rs. 2,000-5,000</div><div class="condition">Excellent condition • Genuine</div></div></article>
-    <article class="product" data-cat="tech"><div class="pic">⌚</div><div class="info"><div class="brand">Rewear</div><div class="name">Smart Watch</div><div class="price">Rs. 2,500-10,000</div><div class="condition">Very good • Genuine</div></div></article>
-    <article class="product" data-cat="shoes"><div class="pic">👟</div><div class="info"><div class="brand"></div>Rewear<div class="name">Pre-Owned Sneakers</div><div class="price">Rs. 2,000-10,000</div><div class="condition">Good condition • Genuine</div></div></article>
-    
-  </div>
+  <div class="grid" id="products"></div>
+  <p class="hint">Select a product to view all its photos and details.</p>
 </section>
 
 <section class="section" id="sell">
   <div class="sell">
-    <div>
-      <h2>Have a branded item to sell?</h2>
-      <p>List your genuine pre-owned item with photos, brand/model, condition, asking price and any proof of purchase or authenticity.</p>
-      <div> contact to buy </div>
-      <div> 03165804895 WHATSAPP ONLY </div>
-    </div>
-    <div class="sell-box">
-      <div>✓ Real brand/model information</div>
-      <div>✓ Clear condition description</div>
-      <div>✓ Original photos required</div>
-      <div>✓ Counterfeit listings prohibited</div>
-    </div>
+    <h2>Want to buy an item?</h2>
+    <p>Contact us on WhatsApp to ask about availability, delivery and payment.</p>
+    <a class="contact" href="https://wa.me/923165804895" target="_blank" rel="noopener">Contact on WhatsApp</a>
   </div>
 </section>
 
 <section class="section" id="authenticity">
   <h2>Authenticity first</h2>
-  <p style="color:#6b7280;max-width:750px;line-height:1.7">This marketplace is for genuine branded products only. Before publishing a listing, verify the item using available proof such as a receipt, serial/model information, original packaging or other reliable evidence. Never claim an item is authentic if you cannot support that claim.</p>
+  <p class="muted">Product descriptions should accurately explain the item's brand, condition and authenticity. Only make claims you can support.</p>
 </section>
 
-<footer>
-  © 2026 ReWear • Pre-owned genuine goods marketplace • Replace the sample products, email and policies before launching.
-</footer>
+<footer>© 2026 ReWear • Pre-owned goods</footer>
+
+<div class="modal" id="productModal" role="dialog" aria-modal="true" aria-label="Product details" onclick="backdropClose(event)">
+  <div class="modal-box">
+    <button class="close" onclick="closeProduct()" aria-label="Close">&times;</button>
+    <div id="detailContent"></div>
+  </div>
+</div>
 
 <script>
-function filterItems(cat,btn){
- document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
- btn.classList.add('active');
- document.querySelectorAll('.product').forEach(p=>{
-   p.style.display=(cat==='all'||p.dataset.cat===cat)?'block':'none';
- });
+// EDIT YOUR PRODUCTS HERE.
+// Add your real photos to the repository's images folder.
+// Each product can have as many photo paths as you want.
+
+const products = [
+  {
+    id:1, category:"fashion", brand:"ReWear",
+    name:"Stylish Cap", price:"Rs. 500",
+    condition:"Good condition",
+    description:"A pre-owned cap. Update this description with its actual colour, size and condition.",
+    emoji:"🧢",
+    photos:["images/cap-1.jpg","images/cap-2.jpg","images/cap-3.jpg"]
+  },
+  {
+    id:2, category:"fashion", brand:"ReWear",
+    name:"Pre-Owned Jacket", price:"Rs. 2,000",
+    condition:"Excellent condition",
+    description:"A pre-owned jacket. Add its size, colour, brand and any signs of wear.",
+    emoji:"🧥",
+    photos:["images/jacket-1.jpg","images/jacket-2.jpg","images/jacket-3.jpg"]
+  },
+  {
+    id:3, category:"tech", brand:"ReWear",
+    name:"Smart Watch", price:"Rs. 2,500",
+    condition:"Very good condition",
+    description:"A pre-owned smartwatch. Add its actual model, features and included accessories.",
+    emoji:"⌚",
+    photos:["images/watch-1.jpg","images/watch-2.jpg","images/watch-3.jpg"]
+  },
+  {
+    id:4, category:"shoes", brand:"ReWear",
+    name:"Pre-Owned Sneakers", price:"Rs. 2,000",
+    condition:"Good condition",
+    description:"Pre-owned sneakers. Add their actual brand, size, colour and condition.",
+    emoji:"👟",
+    photos:["images/shoes-1.jpg","images/shoes-2.jpg","images/shoes-3.jpg"]
+  }
+];
+
+let activeCategory = "all";
+let currentProduct = null;
+
+function photoHTML(path, emoji, className="") {
+  return `<img class="${className}" src="${path}" alt="Product photo"
+    onerror="this.style.display='none';this.parentElement.dataset.missing='yes';">`;
 }
+
+function renderProducts() {
+  const list = products.filter(p =>
+    activeCategory === "all" || p.category === activeCategory
+  );
+
+  document.getElementById("products").innerHTML = list.map(p => `
+    <article class="product" tabindex="0" role="button"
+      aria-label="View ${p.name}"
+      onclick="openProduct(${p.id})"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProduct(${p.id})}">
+      <div class="pic" data-missing="no">
+        <span style="font-size:55px">${p.emoji}</span>
+        ${photoHTML(p.photos[0],p.emoji)}
+      </div>
+      <div class="info">
+        <div class="brand">${p.brand}</div>
+        <div class="name">${p.name}</div>
+        <div class="price">${p.price}</div>
+        <div class="condition">${p.condition}</div>
+        <div class="hint">Click to view photos →</div>
+      </div>
+    </article>
+  `).join("");
+
+  // Hide broken image icons and keep the emoji placeholder visible.
+  document.querySelectorAll(".pic img").forEach(img => {
+    img.addEventListener("error", () => {
+      img.style.display = "none";
+    }, {once:true});
+    if (img.complete && img.naturalWidth === 0) img.style.display = "none";
+  });
+}
+
+function filterItems(category, button) {
+  activeCategory = category;
+  document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+  button.classList.add("active");
+  renderProducts();
+}
+
+function openProduct(id) {
+  currentProduct = products.find(p => p.id === id);
+  if (!currentProduct) return;
+
+  const p = currentProduct;
+  document.getElementById("detailContent").innerHTML = `
+    <div class="brand">${p.brand}</div>
+    <h2 style="margin-top:8px">${p.name}</h2>
+    <div class="main-photo" id="mainPhoto">
+      <span style="font-size:70px">${p.emoji}</span>
+      ${photoHTML(p.photos[0],p.emoji)}
+    </div>
+    <div class="thumbs">
+      ${p.photos.map((src,i) => `
+        <button class="thumb ${i===0?'active':''}" onclick="changePhoto(${i})" aria-label="Show photo ${i+1}">
+          <span>${p.emoji}</span>
+          ${photoHTML(src,p.emoji)}
+        </button>
+      `).join("")}
+    </div>
+    <div class="price">${p.price}</div>
+    <p><b>Condition:</b> ${p.condition}</p>
+    <p>${p.description}</p>
+    <a class="contact" href="https://wa.me/923165804895?text=${encodeURIComponent('Hi, I am interested in '+p.name)}" target="_blank" rel="noopener">Ask about this item on WhatsApp</a>
+  `;
+
+  document.getElementById("productModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+
+  // If a photo has not been uploaded yet, keep the emoji placeholder.
+  document.querySelectorAll("#detailContent img").forEach(img => {
+    img.addEventListener("error", () => {
+      img.style.display = "none";
+    }, {once:true});
+    if (img.complete && img.naturalWidth === 0) img.style.display = "none";
+  });
+}
+
+function changePhoto(index) {
+  if (!currentProduct) return;
+  const p = currentProduct;
+  const main = document.getElementById("mainPhoto");
+  main.innerHTML = `<span style="font-size:70px">${p.emoji}</span>${photoHTML(p.photos[index],p.emoji)}`;
+
+  main.querySelector("img").addEventListener("error", function() {
+    this.style.display = "none";
+  }, {once:true});
+
+  document.querySelectorAll(".thumb").forEach((b,i) => {
+    b.classList.toggle("active", i === index);
+  });
+}
+
+function closeProduct() {
+  document.getElementById("productModal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function backdropClose(event) {
+  if (event.target.id === "productModal") closeProduct();
+}
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeProduct();
+});
+
+renderProducts();
 </script>
 </body>
 </html>
