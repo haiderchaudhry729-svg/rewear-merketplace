@@ -4,209 +4,658 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ReWear — Pre-Owned Brands</title>
+<title>ReWear | Buy & Sell</title>
+
 <style>
-:root{--ink:#171717;--muted:#6b7280;--bg:#f7f7f5;--line:#e7e7e2}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
-header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
-.nav{max-width:1180px;margin:auto;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:25px;font-weight:800}
-.logo span{color:#777}
-nav a{margin-left:12px;color:#333;text-decoration:none;font-size:14px}
-.hero{max-width:1180px;margin:auto;padding:45px 22px;display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:center}
-.badge{display:inline-block;border:1px solid #ddd;border-radius:30px;padding:8px 12px;font-size:12px;background:white}
-h1{font-size:clamp(42px,6vw,72px);line-height:.98;letter-spacing:-3px;margin:20px 0}
-p{line-height:1.65}
-.muted{color:var(--muted)}
-.btn{display:inline-block;background:#111;color:#fff;padding:13px 18px;border-radius:9px;text-decoration:none;font-weight:bold}
-.hero-card{background:#151515;color:white;border-radius:22px;padding:28px;min-height:250px;display:flex;flex-direction:column;justify-content:end}
-.hero-card .big{font-size:75px;font-weight:900}
-.section{max-width:1180px;margin:15px auto;padding:30px 22px}
-.section-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:22px}
-h2{font-size:30px;margin:0}
-.filters{display:flex;gap:7px;flex-wrap:wrap}
-button{cursor:pointer;font:inherit}
-.filters button{border:1px solid #ddd;background:#fff;border-radius:25px;padding:9px 13px}
-.filters button.active{background:#111;color:white}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.product{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;cursor:pointer;transition:.2s}
-.product:hover{transform:translateY(-3px);box-shadow:0 8px 20px #0001}
-.pic{height:220px;background:#eaeae6;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.pic img{width:100%;height:100%;object-fit:cover}
-.info{padding:15px}
-.brand{font-size:12px;color:#777;text-transform:uppercase;letter-spacing:1px}
-.name{font-weight:bold;margin:8px 0}
-.price{font-weight:800;font-size:19px}
-.condition{font-size:12px;color:#64748b;margin-top:7px}
-.hint{font-size:12px;color:#777;margin-top:12px}
-.sell{background:#111;color:white;border-radius:20px;padding:30px}
-.sell p{color:#ccc}
-footer{padding:28px 22px;border-top:1px solid var(--line);color:#777;font-size:13px}
-.modal{display:none;position:fixed;inset:0;background:#0009;z-index:20;overflow-y:auto;padding:20px}
-.modal.open{display:flex;align-items:center;justify-content:center}
-.modal-box{background:white;width:100%;max-width:760px;border-radius:18px;padding:22px;position:relative;margin:auto}
-.close{position:absolute;right:15px;top:12px;border:0;background:#eee;border-radius:50%;width:36px;height:36px;font-size:22px}
-.main-photo{height:350px;background:#eee;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:20px}
-.main-photo img{width:100%;height:100%;object-fit:contain}
-.thumbs{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-.thumb{width:82px;height:75px;border:2px solid transparent;border-radius:8px;overflow:hidden;background:#eee;padding:0}
-.thumb.active{border-color:#111}
-.thumb img{width:100%;height:100%;object-fit:cover}
-.gallery-controls{display:flex;justify-content:space-between;gap:8px;margin:12px 0}
-.gallery-controls button{padding:9px;border:1px solid #ddd;background:white;border-radius:8px}
-.contact{display:inline-block;background:#168344;color:white;text-decoration:none;padding:12px 18px;border-radius:9px;font-weight:bold;margin-top:12px}
-@media(max-width:800px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:500px){.pic{height:155px}.info{padding:10px}.price{font-size:16px}.modal{padding:10px}.main-photo{height:260px}h1{letter-spacing:-2px}}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+header {
+  background: #17251d;
+  color: white;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #b5e48c;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero {
+  background: linear-gradient(120deg, #203c2b, #62865a);
+  color: white;
+  padding: 65px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  margin-bottom: 14px;
+}
+
+.hero p {
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.search-box {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.section {
+  padding: 35px 6%;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.filters button {
+  padding: 10px 17px;
+  border: 1px solid #203c2b;
+  border-radius: 22px;
+  background: white;
+  color: #203c2b;
+  cursor: pointer;
+}
+
+.filters button.active,
+.filters button:hover {
+  background: #203c2b;
+  color: white;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px #00000012;
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  background: #eee;
+}
+
+.product-info {
+  padding: 15px;
+}
+
+.product-info h3 {
+  margin-bottom: 9px;
+  font-size: 17px;
+}
+
+.price {
+  color: #2e6b3d;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.condition {
+  display: inline-block;
+  padding: 5px 9px;
+  background: #e7f5e5;
+  color: #245c2c;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.details-btn {
+  display: block;
+  width: 100%;
+  padding: 11px;
+  margin-top: 13px;
+  border: none;
+  background: #203c2b;
+  color: white;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.details-page {
+  display: none;
+  padding: 30px 6%;
+  min-height: 70vh;
+}
+
+.back-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 7px;
+  background: #203c2b;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.details-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+}
+
+.main-photo {
+  width: 100%;
+  height: 380px;
+  object-fit: contain;
+  background: #f2f2f2;
+  border-radius: 9px;
+}
+
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.gallery-controls button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #203c2b;
+  color: white;
+  cursor: pointer;
+}
+
+#photoCount {
+  font-size: 14px;
+}
+
+.details-info h1 {
+  margin: 10px 0 15px;
+}
+
+.details-info p {
+  line-height: 1.7;
+  margin: 15px 0;
+}
+
+.contact-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 13px 20px;
+  background: #218c48;
+  color: white;
+  text-decoration: none;
+  border-radius: 7px;
+}
+
+footer {
+  background: #17251d;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 35px;
+}
+
+.empty {
+  padding: 30px 0;
+  color: #666;
+}
+
+@media (max-width: 750px) {
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-card img {
+    height: 180px;
+  }
+
+  .details-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .main-photo {
+    height: 300px;
+  }
+
+  .section {
+    padding: 25px 4%;
+  }
+}
+
+@media (max-width: 400px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card img {
+    height: 240px;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">Re<span>Wear</span></div>
-    <nav><a href="#shop">Shop</a><a href="#sell">Contact</a><a href="#authenticity">Authenticity</a></nav>
-  </div>
+  <div class="logo">Re<span>Wear</span></div>
+  <nav>
+    <a href="#" onclick="showHome(); return false;">Home</a>
+    <a href="#shop" onclick="showHome()">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<section class="hero">
-  <div>
-    <span class="badge">PRE-OWNED • GENUINE BRANDS</span>
-    <h1>Good brands.<br>Second life.</h1>
-    <p class="muted">Discover quality products with clear photos, prices and condition details.</p>
-    <a class="btn" href="#shop">Browse items</a>
+<section class="hero" id="hero">
+  <h1>Discover Your Style with ReWear</h1>
+  <p>Find caps, hoodies and shoes at affordable prices in Pakistan.</p>
+  <div class="search-box">
+    <input id="searchInput" type="search"
+      placeholder="Search caps, hoodies, shoes..."
+      oninput="renderProducts()">
   </div>
-  <div class="hero-card"><div class="big">01</div><p>Shop items with clear photos and honest details.</p></div>
 </section>
 
-<section class="section" id="shop">
-  <div class="section-head">
-    <h2>Featured items</h2>
+<main id="homePage">
+  <section class="section" id="shop">
+    <h2>Our Products</h2>
+
     <div class="filters">
-      <button class="active" onclick="filterItems('all',this)">All</button>
-      <button onclick="filterItems('fashion',this)">Fashion</button>
-      <button onclick="filterItems('tech',this)">Tech</button>
-      <button onclick="filterItems('shoes',this)">Shoes</button>
-      <button onclick="filterItems('caps',this)">Caps</button>
+      <button class="active" onclick="setCategory('all', this)">All</button>
+      <button onclick="setCategory('caps', this)">Caps</button>
+      <button onclick="setCategory('hoodies', this)">Hoodies</button>
+      <button onclick="setCategory('shoes', this)">Shoes</button>
+    </div>
+
+    <div class="products" id="productsGrid"></div>
+    <p class="empty" id="emptyMessage" hidden>No products found.</p>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About ReWear</h2>
+    <p>ReWear helps you discover everyday fashion items at affordable prices. Explore our collection and contact the seller for more information.</p>
+  </section>
+</main>
+
+<section class="details-page" id="detailsPage">
+  <button class="back-btn" onclick="showHome()">← Back to Products</button>
+
+  <div class="details-layout">
+    <div>
+      <img id="mainPhoto" class="main-photo" src="" alt="Product photo">
+
+      <div class="gallery-controls">
+        <button onclick="changePhoto(-1)">← Previous</button>
+        <span id="photoCount">1 / 1</span>
+        <button onclick="changePhoto(1)">Next →</button>
+      </div>
+    </div>
+
+    <div class="details-info">
+      <span class="condition" id="detailCondition"></span>
+      <h1 id="detailName"></h1>
+      <div class="price" id="detailPrice"></div>
+      <p id="detailDescription"></p>
+      <p><strong>Category:</strong> <span id="detailCategory"></span></p>
+      <a class="contact-btn" id="contactSeller" href="#" target="_blank" rel="noopener">
+        Contact Seller
+      </a>
     </div>
   </div>
-  <div class="grid" id="products"></div>
-  <p class="hint">Select any item to view details and photos.</p>
 </section>
 
-<section class="section" id="sell">
-  <div class="sell">
-    <h2>Want to buy an item?</h2>
-    <p>Contact us on WhatsApp about availability, delivery and payment.</p>
-    <a class="contact" href="https://wa.me/923165804895" target="_blank" rel="noopener">Contact on WhatsApp</a>
-  </div>
-</section>
-
-<section class="section" id="authenticity">
-  <h2>Authenticity first</h2>
-  <p class="muted">Product descriptions should accurately explain the item's brand, condition and authenticity.</p>
-</section>
-
-<footer>© 2026 ReWear • Pre-owned goods</footer>
-
-<div class="modal" id="productModal" onclick="backdropClose(event)">
-  <div class="modal-box">
-    <button class="close" onclick="closeProduct()">&times;</button>
-    <div id="detailContent"></div>
-  </div>
-</div>
+<footer id="contact">
+  <p>© 2026 ReWear | Buy and Sell Fashion</p>
+  <p style="margin-top:8px;">Caps • Hoodies • Shoes</p>
+</footer>
 
 <script>
 const products = [
- {id:1,category:"caps",brand:"ReWear",name:"Black Wave Cap",price:"Rs. 550",condition:"New",description:"Black cap with a white wave logo.",emoji:"🧢",photos:["images/black-wave-cap.jpg"]},
- {id:2,category:"caps",brand:"ReWear",name:"Grey Cabela's Cap",price:"Rs. 500",condition:"New",description:"Grey cap with yellow embroidered logo.",emoji:"🧢",photos:["images/grey-cabelas-cap.jpg"]},
- {id:3,category:"caps",brand:"ReWear",name:"Red & White Cap",price:"Rs. 650",condition:"New",description:"Red, white and black cap with embroidered logo.",emoji:"🧢",photos:["images/red-white-cap.jpg"]},
- {id:4,category:"fashion",brand:"ReWear",name:"Pre-Owned Jacket",price:"Rs. 2,000",condition:"Excellent condition",description:"Update this description with the jacket's actual details.",emoji:"🧥",photos:["images/jacket-1.jpg","images/jacket-2.jpg","images/jacket-3.jpg"]},
- {id:5,category:"tech",brand:"ReWear",name:"Smart Watch",price:"Rs. 2,500",condition:"Very good condition",description:"Update this description with the watch's actual model and features.",emoji:"⌚",photos:["images/watch-1.jpg","images/watch-2.jpg","images/watch-3.jpg"]},
- {id:6,category:"shoes",brand:"ReWear",name:"Pre-Owned Sneakers",price:"Rs. 2,000",condition:"Good condition",description:"Update this description with the shoes' actual details.",emoji:"👟",photos:["images/shoes-1.jpg","images/shoes-2.jpg","images/shoes-3.jpg"]}
+  {
+    id: 1,
+    name: "Classic Black Cap",
+    price: 550,
+    category: "caps",
+    condition: "New",
+    description: "A simple black cap for everyday wear. Contact the seller to confirm availability and size.",
+    images: [
+      "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    id: 2,
+    name: "Baseball Cap",
+    price: 500,
+    category: "caps",
+    condition: "New",
+    description: "A casual baseball-style cap suitable for daily outfits.",
+    images: [
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    id: 3,
+    name: "Streetwear Cap",
+    price: 650,
+    category: "caps",
+    condition: "New",
+    description: "A stylish everyday cap. Please contact the seller to confirm the product details.",
+    images: [
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    id: 4,
+    name: "Black Casual Hoodie",
+    price: 1800,
+    category: "hoodies",
+    condition: "New",
+    description: "A comfortable casual hoodie for everyday use. Check size and availability with the seller.",
+    images: [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    id: 5,
+    name: "Grey Pullover Hoodie",
+    price: 2000,
+    category: "hoodies",
+    condition: "New",
+    description: "A classic pullover hoodie for cool weather and casual outfits.",
+    images: [
+      "https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    id: 6,
+    name: "Street Style Hoodie",
+    price: 2200,
+    category: "hoodies",
+    condition: "New",
+    description: "A modern streetwear hoodie. Contact the seller to confirm sizes and stock.",
+    images: [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    id: 7,
+    name: "Red Sports Sneakers",
+    price: 2000,
+    category: "shoes",
+    condition: "New",
+    description: "Sporty sneakers for everyday activities. Confirm size and availability with the seller.",
+    images: [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    id: 8,
+    name: "White Casual Sneakers",
+    price: 2500,
+    category: "shoes",
+    condition: "New",
+    description: "Classic casual sneakers that pair well with everyday outfits.",
+    images: [
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    id: 9,
+    name: "Black Casual Shoes",
+    price: 2200,
+    category: "shoes",
+    condition: "New",
+    description: "Versatile casual shoes for everyday wear. Ask the seller about available sizes.",
+    images: [
+      "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
+    ]
+  }
 ];
 
-let activeCategory="all",currentProduct=null,currentPhotoIndex=0;
+// Replace this number with your seller WhatsApp number.
+// Use country code, without + or spaces.
+const sellerWhatsApp = "923165804895";
 
-function photoHTML(path){
- return `<img src="${path}" alt="Product photo" onerror="this.style.display='none'">`;
+let currentCategory = "all";
+let currentProduct = null;
+let currentPhotoIndex = 0;
+
+function formatPrice(price) {
+  return "Rs. " + price.toLocaleString("en-PK");
 }
 
-function renderProducts(){
- const list=products.filter(p=>activeCategory==="all"||p.category===activeCategory);
- document.getElementById("products").innerHTML=list.map(p=>`
- <article class="product" tabindex="0" role="button" onclick="openProduct(${p.id})"
- onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProduct(${p.id})}">
- <div class="pic"><span style="font-size:55px">${p.emoji}</span>${photoHTML(p.photos[0])}</div>
- <div class="info"><div class="brand">${p.brand}</div><div class="name">${p.name}</div><div class="price">${p.price}</div><div class="condition">${p.condition}</div><div class="hint">Click to view details →</div></div>
- </article>`).join("");
+function setCategory(category, button) {
+  currentCategory = category;
+
+  document.querySelectorAll(".filters button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+  renderProducts();
 }
 
-function filterItems(category,button){
- activeCategory=category;
- document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
- button.classList.add("active");
- renderProducts();
+function renderProducts() {
+  const grid = document.getElementById("productsGrid");
+  const search = document.getElementById("searchInput").value
+    .trim()
+    .toLowerCase();
+
+  const filtered = products.filter(product => {
+    const categoryMatch =
+      currentCategory === "all" ||
+      product.category === currentCategory;
+
+    const searchMatch =
+      product.name.toLowerCase().includes(search) ||
+      product.description.toLowerCase().includes(search) ||
+      product.category.toLowerCase().includes(search);
+
+    return categoryMatch && searchMatch;
+  });
+
+  grid.innerHTML = "";
+
+  document.getElementById("emptyMessage").hidden = filtered.length !== 0;
+
+  filtered.forEach(product => {
+    const card = document.createElement("article");
+    card.className = "product-card";
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-label", "View " + product.name);
+
+    const img = document.createElement("img");
+    img.src = product.images[0];
+    img.alt = product.name;
+    img.loading = "lazy";
+    img.onerror = function() {
+      this.alt = "Photo unavailable: " + product.name;
+    };
+
+    const info = document.createElement("div");
+    info.className = "product-info";
+
+    const name = document.createElement("h3");
+    name.textContent = product.name;
+
+    const price = document.createElement("div");
+    price.className = "price";
+    price.textContent = formatPrice(product.price);
+
+    const condition = document.createElement("span");
+    condition.className = "condition";
+    condition.textContent = product.condition;
+
+    const button = document.createElement("button");
+    button.className = "details-btn";
+    button.textContent = "View Details";
+    button.type = "button";
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      openProduct(product.id);
+    });
+
+    info.append(name, price, condition, button);
+    card.append(img, info);
+
+    card.addEventListener("click", () => openProduct(product.id));
+    card.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openProduct(product.id);
+      }
+    });
+
+    grid.appendChild(card);
+  });
 }
 
-function openProduct(id){
- currentProduct=products.find(p=>p.id===id);
- if(!currentProduct)return;
- currentPhotoIndex=0;
- const p=currentProduct;
- document.getElementById("detailContent").innerHTML=`
- <div class="brand">${p.brand}</div><h2 style="margin-top:8px;padding-right:40px">${p.name}</h2>
- <div class="main-photo" id="mainPhoto"><span style="font-size:70px">${p.emoji}</span>${photoHTML(p.photos[0])}</div>
- <div class="gallery-controls">
- <button onclick="changePhoto(-1)">← Previous</button>
- <span id="photoCount"></span>
- <button onclick="changePhoto(1)">Next →</button></div>
- <div class="thumbs">${p.photos.map((src,i)=>`<button class="thumb ${i===0?'active':''}" onclick="selectPhoto(${i})">${photoHTML(src)}</button>`).join("")}</div>
- <div class="price">${p.price}</div><p><b>Condition:</b> ${p.condition}</p><p>${p.description}</p>
- <a class="contact" href="https://wa.me/923165804895?text=${encodeURIComponent('Hi, I am interested in '+p.name+' listed for '+p.price)}" target="_blank" rel="noopener">Contact Seller on WhatsApp</a>`;
- document.getElementById("productModal").classList.add("open");
- document.body.style.overflow="hidden";
- updateGallery();
+function openProduct(id) {
+  currentProduct = products.find(product => product.id === id);
+  if (!currentProduct) return;
+
+  currentPhotoIndex = 0;
+
+  document.getElementById("homePage").style.display = "none";
+  document.getElementById("hero").style.display = "none";
+  document.getElementById("detailsPage").style.display = "block";
+
+  document.getElementById("detailName").textContent = currentProduct.name;
+  document.getElementById("detailPrice").textContent =
+    formatPrice(currentProduct.price);
+  document.getElementById("detailCondition").textContent =
+    currentProduct.condition;
+  document.getElementById("detailDescription").textContent =
+    currentProduct.description;
+  document.getElementById("detailCategory").textContent =
+    currentProduct.category.charAt(0).toUpperCase() +
+    currentProduct.category.slice(1);
+
+  const message = "Assalam o Alaikum, I am interested in " +
+    currentProduct.name + " listed for " +
+    formatPrice(currentProduct.price) + " on ReWear.";
+
+  document.getElementById("contactSeller").href =
+    "https://wa.me/" + sellerWhatsApp +
+    "?text=" + encodeURIComponent(message);
+
+  updatePhoto();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function selectPhoto(index){
- if(!currentProduct)return;
- currentPhotoIndex=index;
- const p=currentProduct;
- document.getElementById("mainPhoto").innerHTML=`<span style="font-size:70px">${p.emoji}</span>${photoHTML(p.photos[index])}`;
- document.querySelectorAll(".thumb").forEach((b,i)=>b.classList.toggle("active",i===index));
- updateGallery();
+function updatePhoto() {
+  if (!currentProduct) return;
+
+  document.getElementById("mainPhoto").src =
+    currentProduct.images[currentPhotoIndex];
+
+  document.getElementById("mainPhoto").alt = currentProduct.name;
+
+  document.getElementById("photoCount").textContent =
+    (currentPhotoIndex + 1) + " / " + currentProduct.images.length;
 }
 
-function changePhoto(direction){
- if(!currentProduct)return;
- const count=currentProduct.photos.length;
- currentPhotoIndex=(currentPhotoIndex+direction+count)%count;
- selectPhoto(currentPhotoIndex);
+function changePhoto(direction) {
+  if (!currentProduct) return;
+
+  const total = currentProduct.images.length;
+  currentPhotoIndex = (currentPhotoIndex + direction + total) % total;
+  updatePhoto();
 }
 
-function updateGallery(){
- document.getElementById("photoCount").textContent=`Photo ${currentPhotoIndex+1} of ${currentProduct.photos.length}`;
+function showHome() {
+  document.getElementById("detailsPage").style.display = "none";
+  document.getElementById("homePage").style.display = "block";
+  document.getElementById("hero").style.display = "block";
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
-
-function closeProduct(){
- document.getElementById("productModal").classList.remove("open");
- document.body.style.overflow="";
-}
-
-function backdropClose(event){
- if(event.target.id==="productModal")closeProduct();
-}
-
-document.addEventListener("keydown",event=>{
- if(event.key==="Escape")closeProduct();
- if(document.getElementById("productModal").classList.contains("open")){
-  if(event.key==="ArrowRight")changePhoto(1);
-  if(event.key==="ArrowLeft")changePhoto(-1);
- }
-});
 
 renderProducts();
 </script>
+
 </body>
 </html>
