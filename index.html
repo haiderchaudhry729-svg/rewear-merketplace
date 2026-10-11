@@ -4,312 +4,209 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ReWear | Second Life</title>
-
+<title>ReWear — Pre-Owned Brands</title>
 <style>
+:root{--ink:#171717;--muted:#6b7280;--bg:#f7f7f5;--line:#e7e7e2}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f7f7f5;color:#171717}
-header{background:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd}
-.logo{font-size:27px;font-weight:800}
-header a{color:#171717;text-decoration:none;margin-left:18px}
-main{max-width:1200px;margin:30px auto;padding:0 18px}
-h1{font-size:34px}
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
-.filters button{border:1px solid #ddd;border-radius:25px;background:white;padding:12px 20px;cursor:pointer}
-.filters button.active,.buy{background:#111;color:white}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card{background:white;border:1px solid #ddd;border-radius:13px;overflow:hidden;cursor:pointer}
-.card img{width:100%;height:230px;object-fit:contain;background:#eee}
-.info{padding:14px}
-.info small{color:#666}
-.info h3{margin:8px 0}
-.price{font-size:20px;font-weight:bold}
-.condition{font-size:13px;color:#666;margin-top:8px}
-.modal{display:none;position:fixed;inset:0;background:#000b;z-index:5;align-items:center;justify-content:center;padding:15px}
-.modal-box{background:white;width:100%;max-width:850px;max-height:95vh;overflow:auto;border-radius:18px;padding:20px}
-.modal-top{display:flex;justify-content:space-between;align-items:center}
-.close{border:0;border-radius:50%;padding:12px;cursor:pointer;font-size:20px}
-.big-photo{width:100%;height:360px;object-fit:contain;background:#f0f0ee;border-radius:12px}
-.angles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
-.angle{border:2px solid transparent;border-radius:10px;background:#f2f2f0;padding:5px;cursor:pointer}
-.angle.active{border-color:#111}
-.angle img{width:100%;height:100px;object-fit:contain}
-.angle span{display:block;font-size:13px;padding:5px}
-@media(max-width:700px){
- .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- .card img{height:170px}
- .big-photo{height:280px}
- .angles{gap:5px}
- .angle img{height:65px}
- .angle span{font-size:11px}
-}
-@media(max-width:420px){
- .grid{grid-template-columns:1fr 1fr}
- header a{margin-left:8px;font-size:13px}
-}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
+.nav{max-width:1180px;margin:auto;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:800}
+.logo span{color:#777}
+nav a{margin-left:12px;color:#333;text-decoration:none;font-size:14px}
+.hero{max-width:1180px;margin:auto;padding:45px 22px;display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:center}
+.badge{display:inline-block;border:1px solid #ddd;border-radius:30px;padding:8px 12px;font-size:12px;background:white}
+h1{font-size:clamp(42px,6vw,72px);line-height:.98;letter-spacing:-3px;margin:20px 0}
+p{line-height:1.65}
+.muted{color:var(--muted)}
+.btn{display:inline-block;background:#111;color:#fff;padding:13px 18px;border-radius:9px;text-decoration:none;font-weight:bold}
+.hero-card{background:#151515;color:white;border-radius:22px;padding:28px;min-height:250px;display:flex;flex-direction:column;justify-content:end}
+.hero-card .big{font-size:75px;font-weight:900}
+.section{max-width:1180px;margin:15px auto;padding:30px 22px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:22px}
+h2{font-size:30px;margin:0}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+button{cursor:pointer;font:inherit}
+.filters button{border:1px solid #ddd;background:#fff;border-radius:25px;padding:9px 13px}
+.filters button.active{background:#111;color:white}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.product{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;cursor:pointer;transition:.2s}
+.product:hover{transform:translateY(-3px);box-shadow:0 8px 20px #0001}
+.pic{height:220px;background:#eaeae6;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.pic img{width:100%;height:100%;object-fit:cover}
+.info{padding:15px}
+.brand{font-size:12px;color:#777;text-transform:uppercase;letter-spacing:1px}
+.name{font-weight:bold;margin:8px 0}
+.price{font-weight:800;font-size:19px}
+.condition{font-size:12px;color:#64748b;margin-top:7px}
+.hint{font-size:12px;color:#777;margin-top:12px}
+.sell{background:#111;color:white;border-radius:20px;padding:30px}
+.sell p{color:#ccc}
+footer{padding:28px 22px;border-top:1px solid var(--line);color:#777;font-size:13px}
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:20;overflow-y:auto;padding:20px}
+.modal.open{display:flex;align-items:center;justify-content:center}
+.modal-box{background:white;width:100%;max-width:760px;border-radius:18px;padding:22px;position:relative;margin:auto}
+.close{position:absolute;right:15px;top:12px;border:0;background:#eee;border-radius:50%;width:36px;height:36px;font-size:22px}
+.main-photo{height:350px;background:#eee;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:20px}
+.main-photo img{width:100%;height:100%;object-fit:contain}
+.thumbs{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.thumb{width:82px;height:75px;border:2px solid transparent;border-radius:8px;overflow:hidden;background:#eee;padding:0}
+.thumb.active{border-color:#111}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.gallery-controls{display:flex;justify-content:space-between;gap:8px;margin:12px 0}
+.gallery-controls button{padding:9px;border:1px solid #ddd;background:white;border-radius:8px}
+.contact{display:inline-block;background:#168344;color:white;text-decoration:none;padding:12px 18px;border-radius:9px;font-weight:bold;margin-top:12px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:500px){.pic{height:155px}.info{padding:10px}.price{font-size:16px}.modal{padding:10px}.main-photo{height:260px}h1{letter-spacing:-2px}}
 </style>
 </head>
-
 <body>
+
 <header>
-  <div class="logo">ReWear</div>
-  <nav><a href="#shop">Shop</a><a href="#shop">Items</a></nav>
+  <div class="nav">
+    <div class="logo">Re<span>Wear</span></div>
+    <nav><a href="#shop">Shop</a><a href="#sell">Contact</a><a href="#authenticity">Authenticity</a></nav>
+  </div>
 </header>
 
-<main id="shop">
-  <h1>Shop items</h1>
-  <p>Choose a category, then select a product to see its four angles.</p>
-
-  <div class="filters" id="filters">
-    <button class="active" data-category="All">All</button>
-    <button data-category="Caps">Caps</button>
-    <button data-category="Hoodies">Hoodies</button>
-    <button data-category="Watches">Watches</button>
-    <button data-category="Shoes">Shoes</button>
+<section class="hero">
+  <div>
+    <span class="badge">PRE-OWNED • GENUINE BRANDS</span>
+    <h1>Good brands.<br>Second life.</h1>
+    <p class="muted">Discover quality products with clear photos, prices and condition details.</p>
+    <a class="btn" href="#shop">Browse items</a>
   </div>
+  <div class="hero-card"><div class="big">01</div><p>Shop items with clear photos and honest details.</p></div>
+</section>
 
-  <div class="grid" id="products"></div>
-</main>
-
-<div class="modal" id="modal">
-  <div class="modal-box">
-    <div class="modal-top">
-      <div>
-        <h2 id="modalName">Product</h2>
-        <p id="modalCondition"></p>
-      </div>
-      <button class="close" id="close" aria-label="Close">✕</button>
+<section class="section" id="shop">
+  <div class="section-head">
+    <h2>Featured items</h2>
+    <div class="filters">
+      <button class="active" onclick="filterItems('all',this)">All</button>
+      <button onclick="filterItems('fashion',this)">Fashion</button>
+      <button onclick="filterItems('tech',this)">Tech</button>
+      <button onclick="filterItems('shoes',this)">Shoes</button>
+      <button onclick="filterItems('caps',this)">Caps</button>
     </div>
+  </div>
+  <div class="grid" id="products"></div>
+  <p class="hint">Select any item to view details and photos.</p>
+</section>
 
-    <img class="big-photo" id="bigPhoto" alt="Selected product angle">
+<section class="section" id="sell">
+  <div class="sell">
+    <h2>Want to buy an item?</h2>
+    <p>Contact us on WhatsApp about availability, delivery and payment.</p>
+    <a class="contact" href="https://wa.me/923165804895" target="_blank" rel="noopener">Contact on WhatsApp</a>
+  </div>
+</section>
 
-    <div class="angles" id="angles"></div>
-    <h2 id="modalPrice"></h2>
+<section class="section" id="authenticity">
+  <h2>Authenticity first</h2>
+  <p class="muted">Product descriptions should accurately explain the item's brand, condition and authenticity.</p>
+</section>
+
+<footer>© 2026 ReWear • Pre-owned goods</footer>
+
+<div class="modal" id="productModal" onclick="backdropClose(event)">
+  <div class="modal-box">
+    <button class="close" onclick="closeProduct()">&times;</button>
+    <div id="detailContent"></div>
   </div>
 </div>
 
 <script>
-/*
-  IMPORTANT:
-  Har product ke front, back, left aur right ke liye
-  alag image file rakho. Neeche filenames ke examples hain.
-  Images ko GitHub repository mein "images" folder ke andar upload karo.
-*/
-const items = [
-  {
-    name:"White Everyday Cap",category:"Caps",price:800,condition:"Good",
-    photos:[
-      "images/cap1-front.jpg",
-      "images/cap1-back.jpg",
-      "images/cap1-left.jpg",
-      "images/cap1-right.jpg"
-    ]
-  },
-  {
-    name:"Black Classic Cap",category:"Caps",price:900,condition:"Like New",
-    photos:[
-      "images/cap2-front.jpg",
-      "images/cap2-back.jpg",
-      "images/cap2-left.jpg",
-      "images/cap2-right.jpg"
-    ]
-  },
-  {
-    name:"Grey Street Cap",category:"Caps",price:700,condition:"Good",
-    photos:[
-      "images/cap3-front.jpg",
-      "images/cap3-back.jpg",
-      "images/cap3-left.jpg",
-      "images/cap3-right.jpg"
-    ]
-  },
-  {
-    name:"Grey Comfort Hoodie",category:"Hoodies",price:2200,condition:"Good",
-    photos:[
-      "images/hoodie1-front.jpg",
-      "images/hoodie1-back.jpg",
-      "images/hoodie1-left.jpg",
-      "images/hoodie1-right.jpg"
-    ]
-  },
-  {
-    name:"Black Everyday Hoodie",category:"Hoodies",price:2500,condition:"Like New",
-    photos:[
-      "images/hoodie2-front.jpg",
-      "images/hoodie2-back.jpg",
-      "images/hoodie2-left.jpg",
-      "images/hoodie2-right.jpg"
-    ]
-  },
-  {
-    name:"Navy Zip Hoodie",category:"Hoodies",price:2000,condition:"Good",
-    photos:[
-      "images/hoodie3-front.jpg",
-      "images/hoodie3-back.jpg",
-      "images/hoodie3-left.jpg",
-      "images/hoodie3-right.jpg"
-    ]
-  },
-  {
-    name:"Minimal Classic Watch",category:"Watches",price:3500,condition:"Good",
-    photos:[
-      "images/watch1-front.jpg",
-      "images/watch1-back.jpg",
-      "images/watch1-left.jpg",
-      "images/watch1-right.jpg"
-    ]
-  },
-  {
-    name:"Steel Everyday Watch",category:"Watches",price:4000,condition:"Like New",
-    photos:[
-      "images/watch2-front.jpg",
-      "images/watch2-back.jpg",
-      "images/watch2-left.jpg",
-      "images/watch2-right.jpg"
-    ]
-  },
-  {
-    name:"Leather Strap Watch",category:"Watches",price:3800,condition:"Good",
-    photos:[
-      "images/watch3-front.jpg",
-      "images/watch3-back.jpg",
-      "images/watch3-left.jpg",
-      "images/watch3-right.jpg"
-    ]
-  },
-  {
-    name:"Red Street Sneakers",category:"Shoes",price:4500,condition:"Good",
-    photos:[
-      "images/shoes1-front.jpg",
-      "images/shoes1-back.jpg",
-      "images/shoes1-left.jpg",
-      "images/shoes1-right.jpg"
-    ]
-  },
-  {
-    name:"Classic White Sneakers",category:"Shoes",price:5000,condition:"Like New",
-    photos:[
-      "images/shoes2-front.jpg",
-      "images/shoes2-back.jpg",
-      "images/shoes2-left.jpg",
-      "images/shoes2-right.jpg"
-    ]
-  },
-  {
-    name:"Black Sport Shoes",category:"Shoes",price:3900,condition:"Good",
-    photos:[
-      "images/shoes3-front.jpg",
-      "images/shoes3-back.jpg",
-      "images/shoes3-left.jpg",
-      "images/shoes3-right.jpg"
-    ]
-  }
+const products = [
+ {id:1,category:"caps",brand:"ReWear",name:"Black Wave Cap",price:"Rs. 550",condition:"New",description:"Black cap with a white wave logo.",emoji:"🧢",photos:["images/black-wave-cap.jpg"]},
+ {id:2,category:"caps",brand:"ReWear",name:"Grey Cabela's Cap",price:"Rs. 500",condition:"New",description:"Grey cap with yellow embroidered logo.",emoji:"🧢",photos:["images/grey-cabelas-cap.jpg"]},
+ {id:3,category:"caps",brand:"ReWear",name:"Red & White Cap",price:"Rs. 650",condition:"New",description:"Red, white and black cap with embroidered logo.",emoji:"🧢",photos:["images/red-white-cap.jpg"]},
+ {id:4,category:"fashion",brand:"ReWear",name:"Pre-Owned Jacket",price:"Rs. 2,000",condition:"Excellent condition",description:"Update this description with the jacket's actual details.",emoji:"🧥",photos:["images/jacket-1.jpg","images/jacket-2.jpg","images/jacket-3.jpg"]},
+ {id:5,category:"tech",brand:"ReWear",name:"Smart Watch",price:"Rs. 2,500",condition:"Very good condition",description:"Update this description with the watch's actual model and features.",emoji:"⌚",photos:["images/watch-1.jpg","images/watch-2.jpg","images/watch-3.jpg"]},
+ {id:6,category:"shoes",brand:"ReWear",name:"Pre-Owned Sneakers",price:"Rs. 2,000",condition:"Good condition",description:"Update this description with the shoes' actual details.",emoji:"👟",photos:["images/shoes-1.jpg","images/shoes-2.jpg","images/shoes-3.jpg"]}
 ];
 
-const labels = ["Front","Back","Left Side","Right Side"];
-const products = document.getElementById("products");
-const modal = document.getElementById("modal");
-let selectedCategory = "All";
+let activeCategory="all",currentProduct=null,currentPhotoIndex=0;
+
+function photoHTML(path){
+ return `<img src="${path}" alt="Product photo" onerror="this.style.display='none'">`;
+}
 
 function renderProducts(){
-  products.innerHTML = "";
-
-  items.forEach((item,index)=>{
-    if(selectedCategory !== "All" &&
-       item.category !== selectedCategory) return;
-
-    const card = document.createElement("article");
-    card.className = "card";
-
-    const img = document.createElement("img");
-    img.src = item.photos[0];
-    img.alt = item.name + " front view";
-
-    const info = document.createElement("div");
-    info.className = "info";
-    info.innerHTML =
-      `<small>${item.category}</small>
-       <h3>${item.name}</h3>
-       <div class="price">PKR ${item.price.toLocaleString()}</div>
-       <div class="condition">Condition: ${item.condition}</div>`;
-
-    card.append(img,info);
-    card.addEventListener("click",()=>openProduct(index));
-    products.appendChild(card);
-  });
+ const list=products.filter(p=>activeCategory==="all"||p.category===activeCategory);
+ document.getElementById("products").innerHTML=list.map(p=>`
+ <article class="product" tabindex="0" role="button" onclick="openProduct(${p.id})"
+ onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProduct(${p.id})}">
+ <div class="pic"><span style="font-size:55px">${p.emoji}</span>${photoHTML(p.photos[0])}</div>
+ <div class="info"><div class="brand">${p.brand}</div><div class="name">${p.name}</div><div class="price">${p.price}</div><div class="condition">${p.condition}</div><div class="hint">Click to view details →</div></div>
+ </article>`).join("");
 }
 
-function openProduct(index){
-  const item = items[index];
-
-  document.getElementById("modalName").textContent = item.name;
-  document.getElementById("modalCondition").textContent =
-    "Condition: " + item.condition;
-  document.getElementById("modalPrice").textContent =
-    "PKR " + item.price.toLocaleString();
-
-  const bigPhoto = document.getElementById("bigPhoto");
-  bigPhoto.src = item.photos[0];
-  bigPhoto.alt = item.name + " - Front";
-
-  const angles = document.getElementById("angles");
-  angles.innerHTML = "";
-
-  item.photos.forEach((photo,photoIndex)=>{
-    const button = document.createElement("button");
-    button.className = "angle" + (photoIndex===0 ? " active" : "");
-
-    const img = document.createElement("img");
-    img.src = photo;
-    img.alt = item.name + " - " + labels[photoIndex];
-
-    const span = document.createElement("span");
-    span.textContent = labels[photoIndex];
-
-    button.append(img,span);
-
-    button.addEventListener("click",()=>{
-      bigPhoto.src = photo;
-      bigPhoto.alt = item.name + " - " + labels[photoIndex];
-
-      angles.querySelectorAll(".angle").forEach(b=>
-        b.classList.remove("active")
-      );
-      button.classList.add("active");
-    });
-
-    angles.appendChild(button);
-  });
-
-  modal.style.display = "flex";
+function filterItems(category,button){
+ activeCategory=category;
+ document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
+ button.classList.add("active");
+ renderProducts();
 }
 
-document.querySelectorAll("#filters button").forEach(button=>{
-  button.addEventListener("click",()=>{
-    selectedCategory = button.dataset.category;
-    document.querySelectorAll("#filters button").forEach(b=>
-      b.classList.remove("active")
-    );
-    button.classList.add("active");
-    renderProducts();
-  });
-});
+function openProduct(id){
+ currentProduct=products.find(p=>p.id===id);
+ if(!currentProduct)return;
+ currentPhotoIndex=0;
+ const p=currentProduct;
+ document.getElementById("detailContent").innerHTML=`
+ <div class="brand">${p.brand}</div><h2 style="margin-top:8px;padding-right:40px">${p.name}</h2>
+ <div class="main-photo" id="mainPhoto"><span style="font-size:70px">${p.emoji}</span>${photoHTML(p.photos[0])}</div>
+ <div class="gallery-controls">
+ <button onclick="changePhoto(-1)">← Previous</button>
+ <span id="photoCount"></span>
+ <button onclick="changePhoto(1)">Next →</button></div>
+ <div class="thumbs">${p.photos.map((src,i)=>`<button class="thumb ${i===0?'active':''}" onclick="selectPhoto(${i})">${photoHTML(src)}</button>`).join("")}</div>
+ <div class="price">${p.price}</div><p><b>Condition:</b> ${p.condition}</p><p>${p.description}</p>
+ <a class="contact" href="https://wa.me/923165804895?text=${encodeURIComponent('Hi, I am interested in '+p.name+' listed for '+p.price)}" target="_blank" rel="noopener">Contact Seller on WhatsApp</a>`;
+ document.getElementById("productModal").classList.add("open");
+ document.body.style.overflow="hidden";
+ updateGallery();
+}
 
-document.getElementById("close").addEventListener("click",()=>{
-  modal.style.display = "none";
-});
+function selectPhoto(index){
+ if(!currentProduct)return;
+ currentPhotoIndex=index;
+ const p=currentProduct;
+ document.getElementById("mainPhoto").innerHTML=`<span style="font-size:70px">${p.emoji}</span>${photoHTML(p.photos[index])}`;
+ document.querySelectorAll(".thumb").forEach((b,i)=>b.classList.toggle("active",i===index));
+ updateGallery();
+}
 
-modal.addEventListener("click",event=>{
-  if(event.target === modal) modal.style.display = "none";
-});
+function changePhoto(direction){
+ if(!currentProduct)return;
+ const count=currentProduct.photos.length;
+ currentPhotoIndex=(currentPhotoIndex+direction+count)%count;
+ selectPhoto(currentPhotoIndex);
+}
+
+function updateGallery(){
+ document.getElementById("photoCount").textContent=`Photo ${currentPhotoIndex+1} of ${currentProduct.photos.length}`;
+}
+
+function closeProduct(){
+ document.getElementById("productModal").classList.remove("open");
+ document.body.style.overflow="";
+}
+
+function backdropClose(event){
+ if(event.target.id==="productModal")closeProduct();
+}
 
 document.addEventListener("keydown",event=>{
-  if(event.key === "Escape") modal.style.display = "none";
+ if(event.key==="Escape")closeProduct();
+ if(document.getElementById("productModal").classList.contains("open")){
+  if(event.key==="ArrowRight")changePhoto(1);
+  if(event.key==="ArrowLeft")changePhoto(-1);
+ }
 });
 
 renderProducts();
 </script>
 </body>
 </html>
-
-
